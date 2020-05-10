@@ -1,0 +1,56 @@
+/**
+* I think element-ui's default theme color is too light for long-term use.
+* So I modified the default color and you can modify it to your liking.
+**/
+
+/* theme color */
+$--color-primary: #29b769;
+$--color-success: #90c556;
+$--color-warning: #FF8C6B;
+$--color-danger: #FF6639;
+// $--color-info: #1E1E1E;
+
+$--button-font-weight: 400;
+
+// $--color-text-regular: #1f2d3d;
+
+$--border-color-light: #dfe4ed;
+$--border-color-lighter: #e6ebf5;
+
+$--table-border:1px solid#dfe6ec;
+
+/* icon font path, required */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+// sidebar
+$menuText:white;
+$menuActiveText:white;
+$subMenuActiveText:white; //https://github.com/ElemeFE/element/issues/12951
+
+$menuBg:darken($--color-primary, 5);
+$menuHover:darken($menuBg, 10);
+
+$subMenuBg:darken($menuBg, 10);
+$subMenuHover:darken($subMenuBg, 5);
+
+$--font-path: "~element-ui/lib/theme-chalk/fonts";
+
+@import "~element-ui/packages/theme-chalk/src/index";
+@import "../custom";
+
+// the :export directive is the magic sauce for webpack
+// https://www.bluematador.com/blog/how-to-share-variables-between-js-and-sass
+:export {
+  theme: $--color-primary;
+  menuText: $menuText;
+  menuActiveText: $menuActiveText;
+  subMenuActiveText: $subMenuActiveText;
+  menuBg: $menuBg;
+  menuHover: $menuHover;
+  subMenuBg: $subMenuBg;
+  subMenuHover: $subMenuHover;
+  primary: $--color-primary;
+  success: $--color-success;
+  danger: $--color-danger;
+  waning: $--color-warning;
+}
