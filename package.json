@@ -18,7 +18,7 @@
     "publish_local": "scp -r dist/* "
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.2",
     "element-ui": "2.7.2",
     "file-saver": "2.0.1",
     "fuse.js": "^3.4.4",
