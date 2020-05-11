@@ -23,6 +23,12 @@
         </div>
       </div>
 
+      <!--TODO: 自定义主题覆盖不了菜单背景色-->
+      <div class="drawer-item hidden">
+        <span>自定义主题</span>
+        <theme-picker style="float: right;height: 26px;margin: -3px 8px 0 0;" :default-theme="customTheme" @change="themeChange" />
+      </div>
+
       <div class="drawer-item">
         <span>开启标签</span>
         <el-switch v-model="tagsView" class="drawer-switch" />
@@ -49,9 +55,12 @@ import Theme1 from '@/styles/themes/theme1/colors.scss';
 import Theme2 from '@/styles/themes/theme2/colors.scss';
 import Theme3 from '@/styles/themes/theme3/colors.scss';
 import Theme4 from '@/styles/themes/theme4/colors.scss';
+
 import Cookie from 'js-cookie';
+import ThemePicker from '@/components/ThemePicker'
 
 export default {
+  components: { ThemePicker },
   data() {
     let theme = this.$store.getters.theme
     return {
@@ -62,7 +71,8 @@ export default {
         {name: '夏日炎炎', theme: 'theme2', color: Theme2},
         {name: '秋高气爽', theme: 'theme3', color: Theme3},
         {name: '银装素裹', theme: 'theme4', color: Theme4},
-      ]
+      ],
+      customTheme: ''
     }
   },
   computed: {
@@ -119,6 +129,9 @@ export default {
           value: true
         })
       })
+    },
+    themeChange(val){
+      this.customTheme = val
     }
   }
 }
